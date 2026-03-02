@@ -38,6 +38,22 @@ StrategyFunc = Callable[[ParseResult], str]
 
 
 # --- STRATEGY DEFINITIONS ---
+def follow_redirect(parsed: ParseResult) -> str:
+    original_url: str = urlunparse(parsed)
+
+    response: requests.Response = requests.get(original_url)
+    try:
+        headers: Dict[str, str] = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}
+        response: requests.Response = requests.get(original_url, headers=headers, timeout=5, allow_redirects=False)
+        print (f"resp code {response.status_code}")
+        if response.status_code == 302 or response.status_code == 301:
+            redirect_url = response.headers['Location']
+
+    except Exception as e:
+        print(f"❌ Failed to resolve Google search.app link: {e}")
+
+    return redirect_url
+
 def keep_all(parsed: ParseResult) -> str:
     """ a strat to keep everything untouched """
     return urlunparse(parsed)
@@ -137,7 +153,8 @@ STRATEGIES: List[Rule] = [
     Rule(pattern=r'(^|\.)twitch\.tv$', strategy=keep_specific_params(['t'])),
     Rule(pattern=r'^apple\.news$', strategy=apple_news_strategy),
     Rule(pattern=r'(^|\.)nytimes\.com$', strategy=keep_specific_params(['unlocked_article_code'])),
-    Rule(pattern=r'^admin\.cloud\.microsoft$', strategy=keep_all)
+    Rule(pattern=r'^admin\.cloud\.microsoft$', strategy=keep_all),
+    Rule(pattern=r'search\.app$', strategy=follow_redirect)
 ]
 
 # --- THE ENGINE ---
