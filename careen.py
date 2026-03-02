@@ -39,20 +39,24 @@ StrategyFunc = Callable[[ParseResult], str]
 
 # --- STRATEGY DEFINITIONS ---
 def follow_redirect(parsed: ParseResult) -> str:
+    """Follows a 301/302 redirect and then cleans the resulting destination URL."""
     original_url: str = urlunparse(parsed)
-
-    response: requests.Response = requests.get(original_url)
     try:
         headers: Dict[str, str] = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}
-        response: requests.Response = requests.get(original_url, headers=headers, timeout=5, allow_redirects=False)
-        print (f"resp code {response.status_code}")
-        if response.status_code == 302 or response.status_code == 301:
-            redirect_url = response.headers['Location']
+        response: requests.Response = requests.get(
+            original_url,
+            headers=headers,
+            timeout=5,
+            allow_redirects=False
+        )
+        if 300 <= response.status_code < 400 and 'Location' in response.headers:
+            redirect_url: str = response.headers['Location']
+            return clean_url(redirect_url)
 
     except Exception as e:
         print(f"❌ Failed to resolve Google search.app link: {e}")
 
-    return redirect_url
+    return original_url
 
 def keep_all(parsed: ParseResult) -> str:
     """ a strat to keep everything untouched """
