@@ -47,7 +47,7 @@ Installation
     - Ensure "Allow Untrusted Shortcuts" is enabled in your iOS Settings.
 
     - Download the Careen Shortcut
-    https://www.icloud.com/shortcuts/6517cdd8e1fa4f27997fd8d48ca8d4e7
+    https://www.icloud.com/shortcuts/209deba0e658404f99b5a241a224462e
 
     - Add the shortcut to your library.
 
