@@ -2,7 +2,7 @@
 
 Careen is a privacy-first clipboard utility for macOS and iOS that automatically "careens" your URLs—stripping away the "barnacles" of tracking parameters, resolving hidden redirects, and bypassing paywalls.
 
-    Verb: Careen > To tilt a ship on its side for cleaning, caulking, or repairing. 
+> Verb: Careen > To tilt a ship on its side for cleaning, caulking, or repairing. 
 
 ## ✨ Features
 
