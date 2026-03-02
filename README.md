@@ -2,19 +2,19 @@
 
 Careen is a privacy-first clipboard utility for macOS and iOS that automatically "careens" your URLs—stripping away the "barnacles" of tracking parameters, resolving hidden redirects, and bypassing paywalls.
 
-    Verb: Careen > To tilt a ship on its side for cleaning, caulking, or repairing. ## ✨ Features
+- Verb: Careen > To tilt a ship on its side for cleaning, caulking, or repairing. ## ✨ Features
 
-    Deep Cleaning: Removes aggressive tracking parameters (UTM, fbclid, gclid, etc.).
+- Deep Cleaning: Removes aggressive tracking parameters (UTM, fbclid, gclid, etc.).
 
-    Amazon De-cluttering: Rebuilds massive Amazon links into clean, shareable /dp/ canonical URLs.
+- Amazon De-cluttering: Rebuilds massive Amazon links into clean, shareable /dp/ canonical URLs.
 
-    Google Search Injection: Automatically appends udm=14 and pws=0 to Google Search links for a cleaner, non-AI result page.
+- Google Search Injection: Automatically appends udm=14 and pws=0 to Google Search links for a cleaner, non-AI result page.
 
-    Apple News Resolution: Scrapes and resolves apple.news redirects to their original source URLs.
+- Apple News Resolution: Scrapes and resolves apple.news redirects to their original source URLs.
 
-    Paywall Bypass: Automatically routes supported paywalled sites through archive.today mirrors.
+- Paywall Bypass: Automatically routes supported paywalled sites through archive.today mirrors.
 
-    Workspace Protection: Smart-detection ensures that Google Docs, Sheets, and Microsoft Cloud Admin links are never scrubbed.
+- Workspace Protection: Smart-detection ensures that Google Docs, Sheets, and Microsoft Cloud Admin links are never scrubbed.
 
 💻 macOS Setup (Python)
 
